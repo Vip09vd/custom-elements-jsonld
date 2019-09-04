@@ -3,20 +3,6 @@ class MyHeading extends HTMLElement {
 		super()
 		this.root = this.attachShadow({ mode: 'open' })
 		this.textAlign = this.getAttribute('text-align') || 'left'
-		this.setAttribute('json-ld', JSON.stringify({
-			"@context": "https://schema.org",
-			"@type": "Article",
-			"mainEntityOfPage": {
-				"@type": "WebPage",
-				"@id": "https://google.com/article"
-			},
-			"headline": "valera",
-			"publisher": {
-				"@type": "Organization",
-				"name": "Google"
-			},
-			"description": "A most wonderful article"
-		}));
 		this.jsonld = {
 			"@context": "https://schema.org",
 			"@type": "Article",
@@ -44,6 +30,23 @@ class MyHeading extends HTMLElement {
 			</style>
 			
 	    <slot></slot>
+	    
+	    <script type="application/ld+json">
+    {
+        "@context": "https://schema.org",
+        "@type": "Article",
+        "mainEntityOfPage": {
+            "@type": "WebPage",
+            "@id": "https://google.com/article"
+        },
+        "headline": "valera",
+        "publisher": {
+            "@type": "Organization",
+            "name": "Google"
+        },
+        "description": "A most wonderful article"
+    }
+</script>
 	  `
 	}
 }
