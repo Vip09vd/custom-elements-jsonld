@@ -9,7 +9,7 @@
     <title>Document</title>
 </head>
 <body>
-<my-heading>
+<my-heading jsonld="">
     No special skills required
 </my-heading>
 <my-paragraph>
@@ -18,11 +18,21 @@
     desired page elements and arrange them the way you want.
 </my-paragraph>
 <script src="./index.js" type="module"></script>
-<!--<script>-->
-<!--	window.addEventListener('load', function () {-->
-<!--		const jsonld = JSON.parse(document.querySelector('script[type="application/ld+json"]').innerText)-->
-<!--		document.querySelector('my-heading').jsonld = jsonld-->
-<!--	})-->
-<!--</script>-->
+<script type="application/ld+json">
+    {
+        "@context": "https://schema.org",
+        "@type": "Article",
+        "mainEntityOfPage": {
+            "@type": "WebPage",
+            "@id": "https://google.com/article"
+        },
+        "headline": "Hello World",
+        "publisher": {
+            "@type": "Organization",
+            "name": "Google"
+        },
+        "description": "A most wonderful article"
+    }
+</script>
 </body>
 </html>
